@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sixtyfour+Convergence&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(87, 147, 214);
+
+}
+
+.kanBan {
+    display: flex;
+    gap: 14px;
+    padding: 24px;
+    width: 100%;
+    height: 90vh;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+
+}
+
+.add-column-container {
+    width: 40%;
+    padding: 10px;
+    margin-left: 2%;
+    display: flex;
+    background-color: white;
+    gap: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.input-create-column {
+    border: none;
+    outline: none;
+    padding: 6px;
+    background-color: rgb(60, 139, 228);
+    color: white;
+    border-radius: 10px;
+    width: 70%;
+}
+
+.input-create-column::placeholder {
+    color: white;
+}
+
+.button-creat-column {
+    padding: 4px;
+    width: 25%;
+    border: none;
+    background-color: rgb(60, 139, 228);
+    color: white;
+    border-radius: 10px;
+    transition: all 0.5 ease;
+}
+
+.button-creat-column:hover {
+    background-color: rgb(80, 212, 80);
+}
+
+.kanban-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 300px;
+    max-height: 800px;
+    overflow-y: auto;
+    background-color: rgb(60, 139, 228);
+    border-radius: 12px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    position: relative;
+    min-width: 250px;
+    max-width: 800px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    resize: none;
+    overflow: auto;
+}
+
+
+.resize-handle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    cursor: ew-resize;
+    background-color: rgb(158, 200, 249);
+}
+
+.resize-height {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 5px;
+    cursor: ns-resize;
+    background-color: rgb(158, 200, 249);
+    border-radius: 0 0 10px 10px;
+}
+
+
+.kanban-column::after {
+    position: absolute;
+    content: '';
+    height: 5px;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.kanban-title {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.kanban-title h2 {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    min-width: 120px;
+    font-weight: bold;
+   
+    word-wrap: break-word;
+    white-space: normal;
+    text-overflow: ellipsis;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.add-card {
+    font-size: 14px;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-soma {
+    padding: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.delete-column {
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.kanban-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.kanban-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    gap: 8px;
+    border-radius: 14px;
+    padding: 10px;
+    margin-right: 8px;
+    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    min-width: 150px;
+}
+
+.badge {
+    color: #fff;
+    background-color: rgb(158, 196, 196);
+    width: fit-content;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 12px;
+}
+
+.card-infos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-icons {
+    display: flex;
+    gap: 18px;
+}
+
+.card-icons i {
+    color: #9b9b9b;
+}
+
+.card-title {
+    font-size: 14px;
+    color: #000000;
+    word-wrap: break-word;
+    white-space: normal;
+    text-overflow: ellipsis;
+    overflow-y: auto;
+    max-height: 150px;
+    scroll-behavior: smooth;
+    padding-right: 10px;
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: #eafffa;
+    border-radius: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #539afd;
+    border-radius: 20px;
+}
+
+.dragging {
+    opacity: 0.5;
+}
+
+.cards-hover {
+    background-color: #ffffffd9;
+    border-radius: 8px;
+}
+
+.user img {
+    height: 42px;
+    width: 42px;
+    border-radius: 100%;
+    object-fit: contain;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 35%;
+    text-align: start;
+    border-radius: 8px;
+}
+
+.modal-content h2 {
+    color: #333;
+}
+
+.modal-content label {
+    display: block;
+    margin: 10px 0;
+    color: #555;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline-color: #9b9b9b;
+}
+
+#confirm-button {
+    background-color: rgb(60, 139, 228);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#confirm-button:hover {
+    background-color: rgb(32, 136, 255);
+    box-shadow: 0px 0px 10px 2px rgb(32, 136, 255);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.headle-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.delete-card {
+    color: black;
+}

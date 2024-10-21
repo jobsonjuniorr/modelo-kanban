@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo kanBan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+
+<body>
+
+    <div class="add-column-container">
+        <input type="text" id="add-column" class="input-create-column" placeholder="Nome da nova coluna">
+        <button class="button-creat-column" id="confirm-creat-table">Adicionar Coluna</button>
+    </div>
+
+    <main class="kanBan">
+
+        <div id="customPrompt" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Adicionar Tarefa</h2>
+
+                <label for="task-input">Prioridade da tarefa</label>
+                <input type="text" id="prioried-input" placeholder="Prioridade da tarefa">
+
+                <label for="task-input">Digite a descrição da tarefa</label>
+                <input type="text" id="task-input" placeholder="Descrição da tarefa">
+
+                <button id="confirm-button">Adicionar</button>
+            </div>
+        </div>
+
+
+        <div class="kanban-column">
+            <div class="kanban-title">
+                <h2>Pendente</h2>
+                <button class="add-card">
+                    <i class="fa-solid fa-plus icon-soma"></i>
+                </button>
+                <i class="fa-solid fa-trash delete-column"></i>
+            </div>
+            <div class="kanban-cards"></div>
+            <div class="resize-handle "></div> 
+            <div class="resize-height"></div>
+        </div>
+
+
+        <script src="src/javascript/script.js"></script>
+</body>
+
+</html>
